@@ -11,3 +11,8 @@ pymilvus>=2.4
 FlagEmbedding>=1.2
 python-dotenv>=1.0
 openai>=1.40
+
+# Demo（Streamlit 页面）
+streamlit>=1.36
+pypdf>=4.0
+python-docx>=1.1

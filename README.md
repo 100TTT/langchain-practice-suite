@@ -61,6 +61,21 @@ python 1_core_lcel/05_langchain_openai.py
 - 本地模型模块需要先 `ollama serve` 并 `ollama pull qwen3:8b`；
 - MCP 模块先启动 server 再运行 client。
 
+## 在线演示（Streamlit）
+
+`app.py` 是一个可交互的 RAG 演示页：上传文档 → 构建索引 → 提问 → 查看检索片段与带引用的回答，检索模式可在「混合检索 + RRF / 稠密向量 / 稀疏向量」之间切换。
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+# 浏览器打开 http://localhost:8501
+```
+
+运行前需要：Milvus 已启动、BGE-M3 模型已下载到 `assets/models/bge-m3`、`.env` 里配好 `OPENAI_API_KEY` / `OPENAI_BASE_URL` / `OPENAI_MODEL`。
+
+<!-- 录屏后把 GIF 放到 docs/demo.gif，再删掉下面这行的注释即可在页面顶部展示 -->
+<!-- ![demo](docs/demo.gif) -->
+
 ## 说明
 
 本项目为 LangChain 学习实践仓库：按模块逐个实现并跑通，其中 RAG 部分在示例基础上改写了切分策略与元数据设计（支持按章节做标量过滤），Agent 部分补充了 MCP 两种传输方式的对比实现，记忆部分对比了内存与 SQLite 两种 checkpointer 的差异。
