@@ -36,10 +36,12 @@ langchain-practice-suite/
 │       ├── stdio_mcp_server.py / stdio_mcp_client.py     # 本地进程通信
 │       ├── http_mcp_server.py / http_mcp_client.py       # Streamable HTTP
 │       └── langchain_mcp_client.py / langchain_mcp_demo02.py  # LangChain 接入 MCP
-└── 4_memory_middleware/         # 会话记忆与中间件
-    ├── short_term_memory/01_in_memory_saver_demo.py            # InMemorySaver 短期记忆
-    ├── long_term_memory/02_sqllite_saver_demo.py               # SqliteSaver 长期记忆
-    └── middleware/03_human_in_the_loop_middleware_demo.py      # 敏感工具人工审批
+├── 4_memory_middleware/         # 会话记忆与中间件
+│   ├── short_term_memory/01_in_memory_saver_demo.py            # InMemorySaver 短期记忆
+│   ├── long_term_memory/02_sqllite_saver_demo.py               # SqliteSaver 长期记忆
+│   └── middleware/03_human_in_the_loop_middleware_demo.py      # 敏感工具人工审批
+└── demo/                        # 演示脚手架（非课程练习代码，可自行替换或删除）
+    └── app.py                   # Streamlit 交互式演示页
 ```
 
 ## 技术栈
@@ -63,11 +65,11 @@ python 1_core_lcel/05_langchain_openai.py
 
 ## 在线演示（Streamlit）
 
-`app.py` 是一个可交互的 RAG 演示页：上传文档 → 构建索引 → 提问 → 查看检索片段与带引用的回答，检索模式可在「混合检索 + RRF / 稠密向量 / 稀疏向量」之间切换。
+`demo/app.py` 是一个可交互的 RAG 演示页（**演示脚手架，与上方的练习代码分开**）：上传文档 → 构建索引 → 提问 → 查看检索片段与带引用的回答，检索模式可在「混合检索 + RRF / 稠密向量 / 稀疏向量」之间切换。
 
 ```bash
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run demo/app.py
 # 浏览器打开 http://localhost:8501
 ```
 
@@ -79,3 +81,5 @@ streamlit run app.py
 ## 说明
 
 本项目为 LangChain 学习实践仓库：按模块逐个实现并跑通，其中 RAG 部分在示例基础上改写了切分策略与元数据设计（支持按章节做标量过滤），Agent 部分补充了 MCP 两种传输方式的对比实现，记忆部分对比了内存与 SQLite 两种 checkpointer 的差异。
+
+`demo/` 目录下是为了方便演示额外编写的脚手架页面，不属于课程练习代码，可自行替换或删除。

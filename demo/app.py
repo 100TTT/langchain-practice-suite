@@ -2,9 +2,11 @@
 """
 Streamlit 演示页：知识库 RAG 问答（Milvus + BGE-M3 + 大模型）
 
+注意：本文件是方便演示而编写的脚手架页面，不属于课程练习代码。
+
 运行：
     pip install -r requirements.txt
-    streamlit run app.py
+    streamlit run demo/app.py
 
 依赖服务：
     - Milvus：默认 http://localhost:19530（standalone 模式）
