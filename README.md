@@ -100,4 +100,4 @@ streamlit run demo/app.py
 
 `5_langgraph/` 是从「一条链」走到「状态图」的补充：LCEL 解决单链编排，LangGraph 解决分支、并行、循环与中断恢复。12 个示例逐个拆解单一能力，`12_capstone_workflow.py` 再把它们组装成一条完整工作流（分类路由 → 双路并行检索 → 生成自检回环 → 敏感动作人工审核 → 会话记忆），全部离线可跑。实现过程中踩到的坑（并行写同一 key 必须配 reducer、扇入在分支深浅不一时会被触发多次、interrupt 必须配 checkpointer、recursion_limit 数的是超步）都记录在该目录 README 里。
 
-`demo/` 目录下是为了方便演示额外编写的脚手架页面，不属于课程练习代码，可自行替换或删除。
+`demo/` 目录下是为了方便演示额外编写的脚手架页面，不属于课程练习代码。
